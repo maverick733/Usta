@@ -566,7 +566,7 @@
             }
         }
 
-        /* ===== MODAL ===== */
+        /* ===== MODAL – 70% Bildschirmhöhe & -breite ===== */
         .modal {
             display: none;
             position: fixed;
@@ -584,23 +584,42 @@
         .modal-content {
             background: white;
             border-radius: 32px;
-            max-width: 70%;
-            width: 70%;
-            max-height: 85vh;
+            max-width: 70vw;
+            width: 70vw;
+            max-height: 70vh;
+            height: 70vh;
             overflow-y: auto;
             box-shadow: 0 40px 80px rgba(0,0,0,0.3);
             position: relative;
             transition: 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
-        #contactModal .modal-content {
-            max-width: 70%;
-            width: 70%;
+        /* Für kleine Bildschirme anpassen */
+        @media (max-width: 768px) {
+            .modal-content {
+                max-width: 85vw;
+                width: 85vw;
+                max-height: 80vh;
+                height: 80vh;
+            }
         }
+        @media (max-width: 480px) {
+            .modal-content {
+                max-width: 92vw;
+                width: 92vw;
+                max-height: 85vh;
+                height: 85vh;
+                border-radius: 24px;
+            }
+        }
+
         .modal-content .modal-top {
             padding: 1.8rem 2.2rem 1.2rem 2.2rem;
             color: white;
             background: var(--modal-prof-color, #0b2a41);
             border-radius: 32px 32px 0 0;
+            flex-shrink: 0;
             position: sticky;
             top: 0;
             z-index: 5;
@@ -660,6 +679,8 @@
         }
         .modal-content .modal-body {
             padding: 1.2rem 2.2rem 2rem 2.2rem;
+            flex: 1;
+            overflow-y: auto;
         }
         .modal-content .modal-body .modal-desc {
             color: #1a2f44;
@@ -748,37 +769,11 @@
             background: #5a6b7f;
         }
 
-        @media (max-width: 1024px) {
-            .modal-content, #contactModal .modal-content {
-                max-width: 85%;
-                width: 85%;
-            }
-            .modal-content .modal-top {
-                padding: 1.4rem 1.6rem 1rem 1.6rem;
-            }
-            .modal-content .modal-body {
-                padding: 1rem 1.6rem 1.6rem 1.6rem;
-            }
-        }
-        @media (max-width: 640px) {
-            .modal-content, #contactModal .modal-content {
-                max-width: 95%;
-                width: 95%;
-                max-height: 90vh;
-            }
-            .modal-content .modal-top {
-                padding: 1rem 1.2rem 0.8rem 1.2rem;
-            }
-            .modal-content .modal-top h2 {
-                font-size: 1.4rem;
-            }
-            .modal-content .modal-body {
-                padding: 0.8rem 1.2rem 1.2rem 1.2rem;
-            }
-        }
-
+        /* Kontakt Modal Body */
         .modal-content .modal-contact-form {
             padding: 0 2.2rem 2rem 2.2rem;
+            flex: 1;
+            overflow-y: auto;
         }
         .modal-content .modal-contact-form .request-id-box {
             background: #eef4fa;
@@ -806,7 +801,46 @@
             font-size: 0.9rem;
             margin-bottom: 12px;
         }
+        .modal-content .modal-contact-form label {
+            display: block;
+            font-weight: 500;
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            color: #1e3a5a;
+        }
+        .modal-content .modal-contact-form input,
+        .modal-content .modal-contact-form textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #d4dce8;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            margin-top: 4px;
+            background: #fafdff;
+            transition: 0.15s;
+        }
+        .modal-content .modal-contact-form input:focus,
+        .modal-content .modal-contact-form textarea:focus {
+            border-color: #0b2a41;
+            outline: none;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(11, 42, 65, 0.08);
+        }
+        .modal-content .modal-contact-form textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
         @media (max-width: 640px) {
+            .modal-content .modal-top {
+                padding: 1rem 1.2rem 0.8rem 1.2rem;
+            }
+            .modal-content .modal-top h2 {
+                font-size: 1.4rem;
+            }
+            .modal-content .modal-body {
+                padding: 0.8rem 1.2rem 1.2rem 1.2rem;
+            }
             .modal-content .modal-contact-form {
                 padding: 0 1.2rem 1.2rem 1.2rem;
             }
@@ -913,22 +947,36 @@
             letter-spacing: 1px;
         }
 
-        /* ===== WERBEKARTEN – 3x DICKER RAHMEN & GESTRICHELT ===== */
+        /* ===== WERBEKARTEN – 6px DICKER, GESTRICHELT, ROTIEREND + HÜPFEN ===== */
+        @keyframes borderRotate {
+            0%   { border-color: #b0c8dd; }
+            25%  { border-color: #e67e22; }
+            50%  { border-color: #3498db; }
+            75%  { border-color: #27ae60; }
+            100% { border-color: #b0c8dd; }
+        }
+
+        @keyframes bounceAd {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
         .ad-card {
             background: linear-gradient(145deg, #f8fcff, #eef4fa);
             border-radius: 20px;
-            border: 6px dashed #b0c8dd;   /* 3x dicker + dashed */
+            border: 6px dashed #b0c8dd;
             box-shadow: 0 4px 16px rgba(0,0,0,0.04);
             transition: 0.25s ease;
             display: flex;
             flex-direction: column;
             overflow: hidden;
             position: relative;
+            animation: borderRotate 8s linear infinite, bounceAd 1s ease-in-out infinite;
         }
         .ad-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 32px rgba(0, 20, 40, 0.10);
-            border-color: #7a9bbd;
+            animation-duration: 2s, 0.6s;
         }
         .ad-card .ad-top {
             padding: 1rem 1.2rem 0.6rem 1.2rem;
@@ -1101,6 +1149,64 @@
             width: 100%;
             margin-bottom: 1.6rem;
         }
+
+        /* ===== GRÖSSENANPASSUNGEN ===== */
+        .card-ustalar {
+            padding: 1.0rem 1.2rem !important;
+            min-height: auto !important;
+        }
+        .card-ustalar h2 {
+            font-size: 1.1rem !important;
+            margin-bottom: 0.5rem !important;
+            padding-bottom: 0.4rem !important;
+        }
+        .card-ustalar .info-box {
+            padding: 10px 14px !important;
+            margin-bottom: 8px !important;
+            font-size: 0.8rem !important;
+        }
+        .card-ustalar .btn {
+            padding: 8px 16px !important;
+            font-size: 0.8rem !important;
+            margin-top: 0.6rem !important;
+        }
+
+        .card-reklam {
+            padding: 2.0rem 1.8rem !important;
+            min-height: 280px !important;
+        }
+        .card-reklam .ad-section-title {
+            font-size: 1.1rem !important;
+            margin-bottom: 14px !important;
+        }
+        .card-reklam .ad-slider-container {
+            min-height: 200px !important;
+        }
+        .card-reklam .ad-slide {
+            padding: 1.4rem 1.6rem !important;
+        }
+        .card-reklam .ad-slide .slide-title {
+            font-size: 1.2rem !important;
+        }
+        .card-reklam .ad-slide .slide-desc {
+            font-size: 1.0rem !important;
+        }
+        .card-reklam .ad-slide .slide-cta {
+            font-size: 0.9rem !important;
+            padding: 10px 24px !important;
+        }
+        .card-reklam .ad-slider-dots .dot {
+            width: 12px !important;
+            height: 12px !important;
+        }
+        .card-reklam p {
+            font-size: 0.9rem !important;
+            margin-top: 12px !important;
+        }
+        .card-reklam p span {
+            font-size: 0.8rem !important;
+            padding: 2px 16px !important;
+        }
     </style>
 </head>
 <body>
@@ -1185,7 +1291,7 @@
     <div class="grid">
         <!-- Linke Spalte -->
         <div class="left-column">
-            <div class="card" style="background:#f4f8ff;">
+            <div class="card card-ustalar" style="background:#f4f8ff;">
                 <h2>📢 Ustalar için</h2>
                 <div class="info-box">
                     <strong>Listelenmek ister misiniz?</strong><br>
@@ -1194,7 +1300,7 @@
                 <button id="contactHandwerkerBtn" class="btn btn-success">📧 Başvuru gönder</button>
             </div>
 
-            <div class="card" style="background:#ffffff; padding: 1.2rem 1.4rem;">
+            <div class="card card-reklam" style="background:#ffffff;">
                 <div class="ad-section-title">
                     📢 Sponsorlu Reklamlar
                     <span>Özel Fırsatlar</span>
@@ -1203,9 +1309,9 @@
                     <div class="ad-slider-track" id="adSliderTrack"></div>
                     <div class="ad-slider-dots" id="adSliderDots"></div>
                 </div>
-                <p style="font-size:0.7rem; color:#7a8b9f; margin-top:6px; text-align:center;">
+                <p style="font-size:0.9rem; color:#7a8b9f; margin-top:12px; text-align:center;">
                     💼 Ustalar için özel reklam fırsatları! 
-                    <span style="display:inline-block; background:#0b2a41; color:white; padding:1px 12px; border-radius:40px; font-size:0.6rem; font-weight:600; margin-left:4px;">📞 İletişim</span>
+                    <span style="display:inline-block; background:#0b2a41; color:white; padding:2px 16px; border-radius:40px; font-size:0.8rem; font-weight:600; margin-left:4px;">📞 İletişim</span>
                 </p>
             </div>
         </div>
@@ -1270,10 +1376,12 @@
 
     <!-- Bewertungs Modal -->
     <div class="modal" id="modal">
-        <div class="modal-content" style="max-width:560px; width:92%;">
-            <button class="close-btn" id="closeModal">&times;</button>
-            <h2 id="modalTitle">Usta</h2>
-            <div id="modalBody"></div>
+        <div class="modal-content" style="max-width:70vw; width:70vw; max-height:70vh; height:70vh;">
+            <div class="modal-top" style="background:#0b2a41; border-radius:32px 32px 0 0; padding:1.2rem 2.2rem;">
+                <button class="close-btn" id="closeModal">&times;</button>
+                <h2 id="modalTitle" style="color:white;">Usta</h2>
+            </div>
+            <div class="modal-body" id="modalBody" style="flex:1; overflow-y:auto;"></div>
         </div>
     </div>
 
@@ -1295,7 +1403,7 @@
             { id: 'slide4', title: '🌿 Peyzaj Tasarımı', description: 'Bahçenizi hayalinizdeki gibi tasarlıyoruz. Ücretsiz keşif!', color: '#27ae60', ctaText: 'Keşif Randevusu' }
         ];
 
-        // ===== LISTEN-REKLAM (dynamisch, 3x dicker Rahmen, gestrichelt) =====
+        // ===== LISTEN-REKLAM =====
         const ads = [
             { id: 'ad1', title: '🎨 Boya Malzemeleri', description: 'En kaliteli boya ve badana malzemeleri %20 indirimle!', color: '#e67e22', icon: '🖌️', profession: 'Boyacı', ctaText: 'İncele' },
             { id: 'ad2', title: '🔧 Tesisat Kampanyası', description: 'Tüm tesisat işlerinde ilk 5 müşteriye özel fırsat!', color: '#3498db', icon: '🚰', profession: 'Tesisatçı', ctaText: 'Detaylar' },
@@ -1614,7 +1722,7 @@
             return html;
         }
 
-        // ===== RENDER (mit dicken, gestrichelten Werbekarten) =====
+        // ===== RENDER =====
         function render() {
             let filtered = entries.filter(e => e.approved !== false);
             const locationFilter = searchLocation.value.trim().toLowerCase();
@@ -1667,12 +1775,11 @@
                     </div>
                 `;
 
-                // Reklam einfügen – 6px gestrichelter Rahmen
                 if (index % 3 === 2 && availableAds.length > 0) {
                     const ad = availableAds[adIndex % availableAds.length];
                     adIndex++;
                     html += `
-                        <div class="ad-card" style="--ad-color: ${ad.color}; border-color: ${ad.color};">
+                        <div class="ad-card" style="--ad-color: ${ad.color};">
                             <div class="ad-top" style="background: ${ad.color};">
                                 <span class="ad-title">${ad.icon} ${escapeHtml(ad.title)}</span>
                                 <span class="ad-sponsor-badge">📢 Sponsorlu</span>
@@ -1688,7 +1795,6 @@
 
             entryList.innerHTML = html;
 
-            // Event-Listener
             document.querySelectorAll('.entry-card').forEach(card => {
                 card.addEventListener('click', function(e) {
                     if (e.target.closest('.actions') || e.target.closest('.contact-btn') || e.target.closest('.rate-btn')) return;
@@ -1821,7 +1927,7 @@
                         📌 Bu mesaj <strong>${escapeHtml(entry.name)}</strong>'a iletilecektir. 
                         Talep numaranız: <strong>${requestId}</strong>
                     </div>
-                    <button type="submit" class="btn">📨 Gönder</button>
+                    <button type="submit" class="btn" style="margin-top:0.8rem;">📨 Gönder</button>
                 </form>
             `;
             contactModalBody.innerHTML = html;
@@ -1878,11 +1984,11 @@
                 <div style="margin:16px 0;">
                     <label>Puanınız:</label>
                     <div class="star-rating" id="starSelector">
-                        ${[1,2,3,4,5].map(s => `<span data-star="${s}" class="${s <= current.stars ? 'active' : ''}">★</span>`).join('')}
+                        ${[1,2,3,4,5].map(s => `<span data-star="${s}" class="${s <= current.stars ? 'active' : ''}" style="font-size:2rem; cursor:pointer; display:inline-block; color:${s <= current.stars ? '#f5b342' : '#d0d7e2'};">★</span>`).join('')}
                     </div>
                 </div>
                 <label>Yorumunuz:</label>
-                <textarea id="ratingTextInput" rows="3" placeholder="Örn: Çok iyi iş çıkardı.">${escapeHtml(current.text)}</textarea>
+                <textarea id="ratingTextInput" rows="3" placeholder="Örn: Çok iyi iş çıkardı." style="width:100%; padding:10px; border-radius:14px; border:1px solid #d4dce8;">${escapeHtml(current.text)}</textarea>
                 <button id="saveRatingBtn" class="btn" style="margin-top:12px;">⭐ Kaydet</button>
             `;
             modalBody.innerHTML = html;
@@ -1892,7 +1998,8 @@
                 span.addEventListener('click', function() {
                     selectedStars = Number(this.dataset.star);
                     document.querySelectorAll('#starSelector span').forEach(s => {
-                        s.classList.toggle('active', Number(s.dataset.star) <= selectedStars);
+                        const starVal = Number(s.dataset.star);
+                        s.style.color = starVal <= selectedStars ? '#f5b342' : '#d0d7e2';
                     });
                 });
             });
