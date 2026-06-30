@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Ustam – Usta ve İşveren</title>
     <style>
-        /* ... (CSS'iniz aynen kalacak) ... */
+        /* ===== GRUNDLEGENDES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -21,7 +21,6 @@
             margin: 0 auto;
         }
 
-        /* ===== TOP COLOR BAR ===== */
         .top-color-bar {
             display: flex;
             height: 8px;
@@ -34,7 +33,6 @@
             height: 100%;
         }
 
-        /* ===== HEADER ===== */
         .header-section {
             background: linear-gradient(135deg, #0b2a41 0%, #1a4a6a 100%);
             padding: 20px 28px;
@@ -64,7 +62,6 @@
             margin: 0;
         }
 
-        /* ===== HOW IT WORKS BAR ===== */
         .how-bar {
             background: white;
             border-radius: 16px;
@@ -111,7 +108,6 @@
             white-space: nowrap;
         }
 
-        /* ===== FILTER BAR ===== */
         .filter-bar {
             background: white;
             border-radius: 16px;
@@ -187,7 +183,6 @@
             border-color: #0b2a41;
         }
 
-        /* ===== CITY MARQUEE BAR ===== */
         .city-marquee-bar {
             background: white;
             border-radius: 16px;
@@ -298,7 +293,6 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* ===== MAIN GRID ===== */
         .grid {
             display: grid;
             grid-template-columns: 33% 67%;
@@ -572,7 +566,7 @@
             }
         }
 
-        /* ===== MODAL STYLES ===== */
+        /* ===== MODAL ===== */
         .modal {
             display: none;
             position: fixed;
@@ -919,11 +913,11 @@
             letter-spacing: 1px;
         }
 
-        /* ===== AD CARD STYLES ===== */
+        /* ===== WERBEKARTEN – 3x DICKER RAHMEN & GESTRICHELT ===== */
         .ad-card {
             background: linear-gradient(145deg, #f8fcff, #eef4fa);
             border-radius: 20px;
-            border: 2px dashed #b0c8dd;
+            border: 6px dashed #b0c8dd;   /* 3x dicker + dashed */
             box-shadow: 0 4px 16px rgba(0,0,0,0.04);
             transition: 0.25s ease;
             display: flex;
@@ -991,7 +985,7 @@
             transform: scale(1.02);
         }
 
-        /* ===== WERBEKARTEN - "Ustalar için" KARTININ ALTINDA ===== */
+        /* ===== SLIDER ===== */
         .ad-slider-container {
             position: relative;
             width: 100%;
@@ -1081,7 +1075,6 @@
             background: #7a8b9f;
         }
 
-        /* Reklam başlığı için küçük stil */
         .ad-section-title {
             font-size: 0.9rem;
             font-weight: 600;
@@ -1100,7 +1093,6 @@
             font-weight: 600;
         }
 
-        /* Sol sütun için özel stil - kartlar aynı genişlikte */
         .left-column {
             display: flex;
             flex-direction: column;
@@ -1114,7 +1106,7 @@
 <body>
 <div class="container">
 
-    <!-- ===== TOP COLOR BAR ===== -->
+    <!-- TOP COLOR BAR -->
     <div class="top-color-bar" id="topColorBar">
         <div class="bar-segment" style="background:#e67e22;"></div>
         <div class="bar-segment" style="background:#2c3e50;"></div>
@@ -1126,13 +1118,13 @@
         <div class="bar-segment" style="background:#e74c3c;"></div>
     </div>
 
-    <!-- ===== HEADER ===== -->
+    <!-- HEADER -->
     <div class="header-section">
         <h1>🛠️ Ustam</h1>
         <div class="sub">Türkiye'nin kolay ve güvenilir usta platformu</div>
     </div>
 
-    <!-- ===== HOW IT WORKS BAR ===== -->
+    <!-- HOW IT WORKS -->
     <div class="how-bar">
         <div class="how-steps">
             <div class="how-step-mini">
@@ -1157,7 +1149,7 @@
         <div class="how-tag">⚡ Kolay, hızlı ve herkes için</div>
     </div>
 
-    <!-- ===== CITY MARQUEE BAR ===== -->
+    <!-- CITY MARQUEE -->
     <div class="city-marquee-bar">
         <div class="city-label">
             📍 Tüm İller
@@ -1168,7 +1160,7 @@
         </div>
     </div>
 
-    <!-- ===== FILTER BAR ===== -->
+    <!-- FILTER BAR -->
     <div class="filter-bar">
         <span class="filter-label">🔍 Filtrele</span>
         <select id="searchProfession">
@@ -1189,11 +1181,10 @@
         </div>
     </div>
 
-    <!-- ===== MAIN GRID ===== -->
+    <!-- MAIN GRID -->
     <div class="grid">
-        <!-- Sol Sütun - %33 -->
+        <!-- Linke Spalte -->
         <div class="left-column">
-            <!-- ===== "Ustalar için" KARTI ===== -->
             <div class="card" style="background:#f4f8ff;">
                 <h2>📢 Ustalar için</h2>
                 <div class="info-box">
@@ -1203,16 +1194,13 @@
                 <button id="contactHandwerkerBtn" class="btn btn-success">📧 Başvuru gönder</button>
             </div>
 
-            <!-- ===== WERBEKARTEN - "Ustalar için" KARTININ ALTINDA ===== -->
             <div class="card" style="background:#ffffff; padding: 1.2rem 1.4rem;">
                 <div class="ad-section-title">
                     📢 Sponsorlu Reklamlar
                     <span>Özel Fırsatlar</span>
                 </div>
                 <div class="ad-slider-container" id="adSlider">
-                    <div class="ad-slider-track" id="adSliderTrack">
-                        <!-- Slaytlar JS ile doldurulacak -->
-                    </div>
+                    <div class="ad-slider-track" id="adSliderTrack"></div>
                     <div class="ad-slider-dots" id="adSliderDots"></div>
                 </div>
                 <p style="font-size:0.7rem; color:#7a8b9f; margin-top:6px; text-align:center;">
@@ -1222,7 +1210,7 @@
             </div>
         </div>
 
-        <!-- Sağ Sütun - %67 -->
+        <!-- Rechte Spalte -->
         <div>
             <div class="card">
                 <h2>📌 Usta listesi</h2>
@@ -1299,106 +1287,34 @@
         const STORAGE_KEY = 'serbestmeslek_data_v4';
         const CONTACT_EMAIL = 'info@ustam.com';
 
-        // ===== REKLAM VERİLERİ (Slider için) =====
+        // ===== SLIDER REKLAM =====
         const sliderAds = [
-            {
-                id: 'slide1',
-                title: '🎨 Boya Malzemeleri',
-                description: 'En kaliteli boya ve badana malzemeleri %20 indirimle!',
-                color: '#e67e22',
-                ctaText: 'İncele'
-            },
-            {
-                id: 'slide2',
-                title: '🔧 Tesisat Kampanyası',
-                description: 'Tüm tesisat işlerinde ilk 5 müşteriye özel fırsat!',
-                color: '#3498db',
-                ctaText: 'Detaylar'
-            },
-            {
-                id: 'slide3',
-                title: '⚡ Elektrik Sigorta',
-                description: 'Sigorta ve kablo işlerinde profesyonel ekip, hemen teklif alın.',
-                color: '#f1c40f',
-                ctaText: 'Teklif Al'
-            },
-            {
-                id: 'slide4',
-                title: '🌿 Peyzaj Tasarımı',
-                description: 'Bahçenizi hayalinizdeki gibi tasarlıyoruz. Ücretsiz keşif!',
-                color: '#27ae60',
-                ctaText: 'Keşif Randevusu'
-            }
+            { id: 'slide1', title: '🎨 Boya Malzemeleri', description: 'En kaliteli boya ve badana malzemeleri %20 indirimle!', color: '#e67e22', ctaText: 'İncele' },
+            { id: 'slide2', title: '🔧 Tesisat Kampanyası', description: 'Tüm tesisat işlerinde ilk 5 müşteriye özel fırsat!', color: '#3498db', ctaText: 'Detaylar' },
+            { id: 'slide3', title: '⚡ Elektrik Sigorta', description: 'Sigorta ve kablo işlerinde profesyonel ekip, hemen teklif alın.', color: '#f1c40f', ctaText: 'Teklif Al' },
+            { id: 'slide4', title: '🌿 Peyzaj Tasarımı', description: 'Bahçenizi hayalinizdeki gibi tasarlıyoruz. Ücretsiz keşif!', color: '#27ae60', ctaText: 'Keşif Randevusu' }
         ];
 
-        // ===== REKLAM KARTLARI (Eski sistemle uyum) =====
+        // ===== LISTEN-REKLAM (dynamisch, 3x dicker Rahmen, gestrichelt) =====
         const ads = [
-            {
-                id: 'ad1',
-                title: '🎨 Boya Malzemeleri',
-                description: 'En kaliteli boya ve badana malzemeleri %20 indirimle!',
-                color: '#e67e22',
-                icon: '🖌️',
-                profession: 'Boyacı',
-                ctaText: 'İncele'
-            },
-            {
-                id: 'ad2',
-                title: '🔧 Tesisat Kampanyası',
-                description: 'Tüm tesisat işlerinde ilk 5 müşteriye özel fırsat!',
-                color: '#3498db',
-                icon: '🚰',
-                profession: 'Tesisatçı',
-                ctaText: 'Detaylar'
-            },
-            {
-                id: 'ad3',
-                title: '⚡ Elektrik Sigorta',
-                description: 'Sigorta ve kablo işlerinde profesyonel ekip, hemen teklif alın.',
-                color: '#f1c40f',
-                icon: '💡',
-                profession: 'Elektrikçi',
-                ctaText: 'Teklif Al'
-            },
-            {
-                id: 'ad4',
-                title: '🌿 Peyzaj Tasarımı',
-                description: 'Bahçenizi hayalinizdeki gibi tasarlıyoruz. Ücretsiz keşif!',
-                color: '#27ae60',
-                icon: '🌳',
-                profession: 'Bahçıvan',
-                ctaText: 'Keşif Randevusu'
-            },
-            {
-                id: 'ad5',
-                title: '🔑 Acil Çilingir',
-                description: '7/24 acil çilingir hizmeti, 15 dk\'da kapınızdayız.',
-                color: '#2c3e50',
-                icon: '🗝️',
-                profession: 'Çilingir',
-                ctaText: 'Ara'
-            },
-            {
-                id: 'ad6',
-                title: '🪚 Mobilya İmalatı',
-                description: 'El yapımı ahşap mobilyalar, size özel tasarım.',
-                color: '#d35400',
-                icon: '🪑',
-                profession: 'Marangoz',
-                ctaText: 'İletişim'
-            }
+            { id: 'ad1', title: '🎨 Boya Malzemeleri', description: 'En kaliteli boya ve badana malzemeleri %20 indirimle!', color: '#e67e22', icon: '🖌️', profession: 'Boyacı', ctaText: 'İncele' },
+            { id: 'ad2', title: '🔧 Tesisat Kampanyası', description: 'Tüm tesisat işlerinde ilk 5 müşteriye özel fırsat!', color: '#3498db', icon: '🚰', profession: 'Tesisatçı', ctaText: 'Detaylar' },
+            { id: 'ad3', title: '⚡ Elektrik Sigorta', description: 'Sigorta ve kablo işlerinde profesyonel ekip, hemen teklif alın.', color: '#f1c40f', icon: '💡', profession: 'Elektrikçi', ctaText: 'Teklif Al' },
+            { id: 'ad4', title: '🌿 Peyzaj Tasarımı', description: 'Bahçenizi hayalinizdeki gibi tasarlıyoruz. Ücretsiz keşif!', color: '#27ae60', icon: '🌳', profession: 'Bahçıvan', ctaText: 'Keşif Randevusu' },
+            { id: 'ad5', title: '🔑 Acil Çilingir', description: '7/24 acil çilingir hizmeti, 15 dk\'da kapınızdayız.', color: '#2c3e50', icon: '🗝️', profession: 'Çilingir', ctaText: 'Ara' },
+            { id: 'ad6', title: '🪚 Mobilya İmalatı', description: 'El yapımı ahşap mobilyalar, size özel tasarım.', color: '#d35400', icon: '🪑', profession: 'Marangoz', ctaText: 'İletişim' }
         ];
 
         const TUM_ILLER = [
-            "Adana", "Adıyaman", "Afyonkarahisar", "Ağrı", "Aksaray", "Amasya", "Ankara", "Antalya", "Ardahan", "Artvin",
-            "Aydın", "Balıkesir", "Bartın", "Batman", "Bayburt", "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur",
-            "Bursa", "Çanakkale", "Çankırı", "Çorum", "Denizli", "Diyarbakır", "Düzce", "Edirne", "Elazığ", "Erzincan",
-            "Erzurum", "Eskişehir", "Gaziantep", "Giresun", "Gümüşhane", "Hakkâri", "Hatay", "Iğdır", "Isparta", "İstanbul",
-            "İzmir", "Kahramanmaraş", "Karabük", "Karaman", "Kars", "Kastamonu", "Kayseri", "Kırıkkale", "Kırklareli",
-            "Kırşehir", "Kilis", "Kocaeli", "Konya", "Kütahya", "Malatya", "Manisa", "Mardin", "Mersin", "Muğla",
-            "Muş", "Nevşehir", "Niğde", "Ordu", "Osmaniye", "Rize", "Sakarya", "Samsun", "Siirt", "Sinop",
-            "Sivas", "Şanlıurfa", "Şırnak", "Tekirdağ", "Tokat", "Trabzon", "Tunceli", "Uşak", "Van", "Yalova",
-            "Yozgat", "Zonguldak"
+            "Adana","Adıyaman","Afyonkarahisar","Ağrı","Aksaray","Amasya","Ankara","Antalya","Ardahan","Artvin",
+            "Aydın","Balıkesir","Bartın","Batman","Bayburt","Bilecik","Bingöl","Bitlis","Bolu","Burdur",
+            "Bursa","Çanakkale","Çankırı","Çorum","Denizli","Diyarbakır","Düzce","Edirne","Elazığ","Erzincan",
+            "Erzurum","Eskişehir","Gaziantep","Giresun","Gümüşhane","Hakkâri","Hatay","Iğdır","Isparta","İstanbul",
+            "İzmir","Kahramanmaraş","Karabük","Karaman","Kars","Kastamonu","Kayseri","Kırıkkale","Kırklareli",
+            "Kırşehir","Kilis","Kocaeli","Konya","Kütahya","Malatya","Manisa","Mardin","Mersin","Muğla",
+            "Muş","Nevşehir","Niğde","Ordu","Osmaniye","Rize","Sakarya","Samsun","Siirt","Sinop",
+            "Sivas","Şanlıurfa","Şırnak","Tekirdağ","Tokat","Trabzon","Tunceli","Uşak","Van","Yalova",
+            "Yozgat","Zonguldak"
         ];
 
         const PROF_CONFIG = {
@@ -1411,6 +1327,13 @@
             'Marangoz': { color: '#d35400', icon: '🪚' },
             'Kombi ustası': { color: '#e74c3c', icon: '🔥' }
         };
+
+        let entries = [];
+        let pendingRequests = [];
+        let currentFilter = 'tümü';
+        let currentSort = 'beste';
+        let selectedCity = null;
+        let currentDetailEntryId = null;
 
         const entryList = document.getElementById('entryList');
         const searchProfession = document.getElementById('searchProfession');
@@ -1448,23 +1371,14 @@
         const cityMarqueeWrapper = document.getElementById('cityMarqueeWrapper');
         const cityCountTotal = document.getElementById('cityCountTotal');
 
-        // Slider elementleri
         const adSliderTrack = document.getElementById('adSliderTrack');
         const adSliderDots = document.getElementById('adSliderDots');
 
-        let entries = [];
-        let pendingRequests = [];
-        let currentFilter = 'tümü';
-        let currentSort = 'beste';
-        let selectedCity = null;
-        let currentDetailEntryId = null;
-
-        // Slider state
         let currentSlideIndex = 0;
         let slideInterval = null;
         const SLIDE_INTERVAL_MS = 5000;
 
-        // ===== SLIDER RENDER =====
+        // ===== SLIDER =====
         function renderSlider() {
             let slidesHtml = '';
             sliderAds.forEach((ad, index) => {
@@ -1503,9 +1417,7 @@
             if (index < 0) index = totalSlides - 1;
             if (index >= totalSlides) index = 0;
             currentSlideIndex = index;
-
             adSliderTrack.style.transform = `translateX(-${index * 100}%)`;
-
             document.querySelectorAll('.dot').forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
             });
@@ -1513,40 +1425,32 @@
 
         function startAutoSlide() {
             if (slideInterval) clearInterval(slideInterval);
-            slideInterval = setInterval(() => {
-                goToSlide(currentSlideIndex + 1);
-            }, SLIDE_INTERVAL_MS);
+            slideInterval = setInterval(() => { goToSlide(currentSlideIndex + 1); }, SLIDE_INTERVAL_MS);
         }
 
         function stopAutoSlide() {
-            if (slideInterval) {
-                clearInterval(slideInterval);
-                slideInterval = null;
-            }
+            if (slideInterval) { clearInterval(slideInterval); slideInterval = null; }
         }
 
         const adSlider = document.getElementById('adSlider');
         adSlider.addEventListener('mouseenter', stopAutoSlide);
         adSlider.addEventListener('mouseleave', startAutoSlide);
 
-        // ===== DRAG & DROP für Marquee =====
+        // ===== MARQUEE DRAG =====
         let isDragging = false;
         let startX = 0;
         let scrollLeft = 0;
-        let dragStartTime = 0;
 
         function initDragScroll() {
             cityMarqueeWrapper.addEventListener('mousedown', function(e) {
                 isDragging = true;
                 startX = e.pageX - this.offsetLeft;
                 scrollLeft = this.scrollLeft;
-                dragStartTime = Date.now();
                 this.classList.add('dragging');
                 cityMarqueeTrack.classList.remove('animating');
                 this.style.cursor = 'grabbing';
                 e.preventDefault();
             });
-
             document.addEventListener('mousemove', function(e) {
                 if (!isDragging) return;
                 e.preventDefault();
@@ -1554,8 +1458,7 @@
                 const walk = (x - startX) * 1.5;
                 cityMarqueeWrapper.scrollLeft = scrollLeft - walk;
             });
-
-            document.addEventListener('mouseup', function(e) {
+            document.addEventListener('mouseup', function() {
                 if (isDragging) {
                     isDragging = false;
                     cityMarqueeWrapper.classList.remove('dragging');
@@ -1565,10 +1468,7 @@
                     }
                 }
             });
-
-            let touchStartX = 0;
-            let touchScrollLeft = 0;
-
+            let touchStartX = 0, touchScrollLeft = 0;
             cityMarqueeWrapper.addEventListener('touchstart', function(e) {
                 const touch = e.touches[0];
                 touchStartX = touch.pageX - this.offsetLeft;
@@ -1577,7 +1477,6 @@
                 cityMarqueeTrack.classList.remove('animating');
                 e.preventDefault();
             }, { passive: false });
-
             cityMarqueeWrapper.addEventListener('touchmove', function(e) {
                 if (!isDragging) return;
                 const touch = e.touches[0];
@@ -1586,47 +1485,31 @@
                 this.scrollLeft = touchScrollLeft - walk;
                 e.preventDefault();
             }, { passive: false });
-
-            cityMarqueeWrapper.addEventListener('touchend', function(e) {
+            cityMarqueeWrapper.addEventListener('touchend', function() {
                 if (isDragging) {
                     isDragging = false;
-                    if (!this.matches(':hover')) {
-                        cityMarqueeTrack.classList.add('animating');
-                    }
+                    if (!this.matches(':hover')) cityMarqueeTrack.classList.add('animating');
                 }
             });
-
             cityMarqueeWrapper.addEventListener('mouseenter', function() {
-                if (!isDragging) {
-                    cityMarqueeTrack.classList.remove('animating');
-                }
+                if (!isDragging) cityMarqueeTrack.classList.remove('animating');
             });
-
             cityMarqueeWrapper.addEventListener('mouseleave', function() {
-                if (!isDragging) {
-                    cityMarqueeTrack.classList.add('animating');
-                }
+                if (!isDragging) cityMarqueeTrack.classList.add('animating');
             });
         }
 
-        // ===== TOP COLOR BAR dynamisch aktualisieren =====
+        // ===== TOP COLOR BAR =====
         function updateTopColorBar() {
             const bar = document.getElementById('topColorBar');
-            const professions = Object.keys(PROF_CONFIG);
-            const colors = professions.map(p => PROF_CONFIG[p].color);
+            const colors = Object.keys(PROF_CONFIG).map(p => PROF_CONFIG[p].color);
             const activeColors = entries
                 .filter(e => e.approved !== false)
-                .map(e => {
-                    const prof = e.profession || 'Diğer';
-                    return PROF_CONFIG[prof] ? PROF_CONFIG[prof].color : null;
-                })
+                .map(e => { const p = e.profession || 'Diğer'; return PROF_CONFIG[p] ? PROF_CONFIG[p].color : null; })
                 .filter(c => c !== null);
-            const uniqueColors = [...new Set(activeColors)];
-            const finalColors = uniqueColors.length > 0 ? uniqueColors : colors;
+            const uniqueColors = [...new Set(activeColors.length > 0 ? activeColors : colors)];
             let html = '';
-            finalColors.forEach(color => {
-                html += `<div class="bar-segment" style="background:${color};"></div>`;
-            });
+            uniqueColors.forEach(color => { html += `<div class="bar-segment" style="background:${color};"></div>`; });
             bar.innerHTML = html;
         }
 
@@ -1637,70 +1520,47 @@
             TUM_ILLER.forEach(il => { cityCount[il] = 0; });
             approved.forEach(e => {
                 const city = e.location.trim();
-                if (city && cityCount[city] !== undefined) {
-                    cityCount[city] = (cityCount[city] || 0) + 1;
-                } else if (city) {
-                    cityCount[city] = (cityCount[city] || 0) + 1;
-                }
+                if (city && cityCount[city] !== undefined) cityCount[city] = (cityCount[city] || 0) + 1;
+                else if (city) cityCount[city] = (cityCount[city] || 0) + 1;
             });
-
-            const sortedCities = Object.keys(cityCount)
-                .filter(city => cityCount[city] > 0)
-                .sort((a,b) => a.localeCompare(b));
-
-            const totalCities = sortedCities.length;
-            cityCountTotal.textContent = totalCities;
-
+            const sortedCities = Object.keys(cityCount).filter(city => cityCount[city] > 0).sort((a,b) => a.localeCompare(b));
+            cityCountTotal.textContent = sortedCities.length;
             if (sortedCities.length === 0) {
                 cityMarqueeTrack.innerHTML = `<span style="color:#7a8b9f; font-size:0.85rem;">Henüz il eklenmemiş.</span>`;
                 cityMarqueeTrack.classList.remove('animating');
                 return;
             }
-
             const items = [...sortedCities, ...sortedCities];
             let html = '';
             items.forEach(city => {
                 const count = cityCount[city] || 0;
                 const isActive = selectedCity === city;
-                html += `
-                    <div class="city-item ${isActive ? 'active' : ''}" data-city="${escapeHtml(city)}">
-                        📍 ${escapeHtml(city)}
-                        <span class="city-count-badge">${count}</span>
-                    </div>
-                `;
+                html += `<div class="city-item ${isActive ? 'active' : ''}" data-city="${escapeHtml(city)}">📍 ${escapeHtml(city)} <span class="city-count-badge">${count}</span></div>`;
             });
             cityMarqueeTrack.innerHTML = html;
             cityMarqueeTrack.classList.add('animating');
-
             document.querySelectorAll('.city-item').forEach(item => {
                 item.addEventListener('click', function(e) {
                     e.stopPropagation();
                     const city = this.dataset.city;
-                    if (selectedCity === city) {
-                        selectedCity = null;
-                        searchLocation.value = '';
-                    } else {
-                        selectedCity = city;
-                        searchLocation.value = city;
-                    }
+                    if (selectedCity === city) { selectedCity = null; searchLocation.value = ''; }
+                    else { selectedCity = city; searchLocation.value = city; }
                     renderCityMarquee();
                     render();
                 });
             });
-
             cityMarqueeWrapper.addEventListener('wheel', function(e) {
                 e.preventDefault();
                 this.scrollLeft += e.deltaY;
                 cityMarqueeTrack.classList.remove('animating');
                 clearTimeout(this._scrollTimeout);
                 this._scrollTimeout = setTimeout(() => {
-                    if (!isDragging && !this.matches(':hover')) {
-                        cityMarqueeTrack.classList.add('animating');
-                    }
+                    if (!isDragging && !this.matches(':hover')) cityMarqueeTrack.classList.add('animating');
                 }, 1500);
             }, { passive: false });
         }
 
+        // ===== DATA =====
         function loadEntries() {
             const stored = localStorage.getItem(STORAGE_KEY);
             if (stored) {
@@ -1708,17 +1568,8 @@
                     const data = JSON.parse(stored);
                     entries = data.entries || [];
                     pendingRequests = data.pendingRequests || [];
-                    entries = entries.map(e => ({
-                        ...e,
-                        messages: e.messages || [],
-                        rating: e.rating || null,
-                        price: e.price || '',
-                        approved: e.approved !== undefined ? e.approved : true
-                    }));
-                } catch {
-                    entries = [];
-                    pendingRequests = [];
-                }
+                    entries = entries.map(e => ({ ...e, messages: e.messages || [], rating: e.rating || null, price: e.price || '', approved: e.approved !== undefined ? e.approved : true }));
+                } catch { entries = []; pendingRequests = []; }
             } else {
                 entries = [
                     { id: Date.now() - 300000, name: 'Boya Ustası Ali', location: 'İstanbul', profession: 'Boyacı', price: '400₺/saat', description: 'İç-dış cephe boya, badana, duvar kağıdı. 15 yıllık deneyim.', messages: [], rating: { stars: 5, text: 'Çok titiz ve temiz çalışıyor.' }, approved: true },
@@ -1736,18 +1587,12 @@
         }
 
         function saveEntries() {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify({
-                entries: entries,
-                pendingRequests: pendingRequests
-            }));
+            localStorage.setItem(STORAGE_KEY, JSON.stringify({ entries, pendingRequests }));
             updateTopColorBar();
             renderCityMarquee();
         }
 
-        function generateId() {
-            return Date.now() + Math.floor(Math.random() * 10000);
-        }
-
+        function generateId() { return Date.now() + Math.floor(Math.random() * 10000); }
         function generateRequestId(entryId, timestamp) {
             const prefix = 'UST';
             const date = new Date(timestamp).toISOString().slice(0,10).replace(/-/g,'');
@@ -1755,47 +1600,39 @@
             return `${prefix}-${date}-${entryId}-${random}`;
         }
 
-        // ===== REKLAM FONKSİYONU (Eski sistemle uyum) =====
-        function renderAds() {
-            let filteredAds = ads;
-            if (currentFilter !== 'tümü') {
-                filteredAds = ads.filter(ad => ad.profession === currentFilter);
-            }
-            return filteredAds;
+        function escapeHtml(text) {
+            if (!text) return '';
+            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+            return String(text).replace(/[&<>"']/g, m => map[m]);
         }
 
-        // ===== RENDER =====
+        function renderStars(count) {
+            let html = '';
+            for (let i=1; i<=5; i++) {
+                html += i <= count ? '★' : '<span class="empty-star">★</span>';
+            }
+            return html;
+        }
+
+        // ===== RENDER (mit dicken, gestrichelten Werbekarten) =====
         function render() {
             let filtered = entries.filter(e => e.approved !== false);
             const locationFilter = searchLocation.value.trim().toLowerCase();
-            if (locationFilter) {
-                filtered = filtered.filter(e => e.location.toLowerCase().includes(locationFilter));
-            }
-            if (currentFilter !== 'tümü') {
-                filtered = filtered.filter(e => e.profession === currentFilter);
-            }
-            if (currentSort === 'neueste') {
-                filtered.sort((a,b) => b.id - a.id);
-            } else if (currentSort === 'beste') {
-                filtered.sort((a,b) => {
-                    const ra = a.rating ? a.rating.stars : 0;
-                    const rb = b.rating ? b.rating.stars : 0;
-                    return rb - ra;
-                });
-            } else if (currentSort === 'preis') {
-                filtered.sort((a,b) => {
-                    const pa = parseFloat(a.price) || 99999;
-                    const pb = parseFloat(b.price) || 99999;
-                    return pa - pb;
-                });
-            }
+            if (locationFilter) filtered = filtered.filter(e => e.location.toLowerCase().includes(locationFilter));
+            if (currentFilter !== 'tümü') filtered = filtered.filter(e => e.profession === currentFilter);
+            if (currentSort === 'neueste') filtered.sort((a,b) => b.id - a.id);
+            else if (currentSort === 'beste') filtered.sort((a,b) => { const ra = a.rating ? a.rating.stars : 0; const rb = b.rating ? b.rating.stars : 0; return rb - ra; });
+            else if (currentSort === 'preis') filtered.sort((a,b) => { const pa = parseFloat(a.price) || 99999; const pb = parseFloat(b.price) || 99999; return pa - pb; });
 
             if (filtered.length === 0) {
                 entryList.innerHTML = `<div class="empty">🔍 Usta bulunamadı. Filtrenizi değiştirin.</div>`;
                 return;
             }
 
-            const availableAds = renderAds();
+            let availableAds = ads;
+            if (currentFilter !== 'tümü') {
+                availableAds = ads.filter(ad => ad.profession === currentFilter);
+            }
             let adIndex = 0;
 
             let html = '';
@@ -1830,12 +1667,12 @@
                     </div>
                 `;
 
+                // Reklam einfügen – 6px gestrichelter Rahmen
                 if (index % 3 === 2 && availableAds.length > 0) {
                     const ad = availableAds[adIndex % availableAds.length];
                     adIndex++;
-
                     html += `
-                        <div class="ad-card" style="--ad-color: ${ad.color};">
+                        <div class="ad-card" style="--ad-color: ${ad.color}; border-color: ${ad.color};">
                             <div class="ad-top" style="background: ${ad.color};">
                                 <span class="ad-title">${ad.icon} ${escapeHtml(ad.title)}</span>
                                 <span class="ad-sponsor-badge">📢 Sponsorlu</span>
@@ -1851,6 +1688,7 @@
 
             entryList.innerHTML = html;
 
+            // Event-Listener
             document.querySelectorAll('.entry-card').forEach(card => {
                 card.addEventListener('click', function(e) {
                     if (e.target.closest('.actions') || e.target.closest('.contact-btn') || e.target.closest('.rate-btn')) return;
@@ -1858,53 +1696,32 @@
                     openDetailModal(id);
                 });
             });
-
             document.querySelectorAll('.contact-btn').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.stopPropagation();
                     const id = Number(this.dataset.id);
                     const name = this.dataset.name;
-                    if (detailModal.classList.contains('active')) {
-                        detailModal.classList.remove('active');
-                    }
+                    if (detailModal.classList.contains('active')) detailModal.classList.remove('active');
                     openContactModalLarge(id, name);
                 });
             });
-
             document.querySelectorAll('.rate-btn').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.stopPropagation();
                     const id = Number(this.dataset.id);
-                    if (detailModal.classList.contains('active')) {
-                        detailModal.classList.remove('active');
-                    }
+                    if (detailModal.classList.contains('active')) detailModal.classList.remove('active');
                     openRatingModal(id);
                 });
             });
         }
 
-        function renderStars(count) {
-            let html = '';
-            for (let i=1; i<=5; i++) {
-                html += i <= count ? '★' : '<span class="empty-star">★</span>';
-            }
-            return html;
-        }
-
-        function escapeHtml(text) {
-            if (!text) return '';
-            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
-            return String(text).replace(/[&<>"']/g, m => map[m]);
-        }
-
-        // ----- DETAIL MODAL -----
+        // ===== DETAIL MODAL =====
         function openDetailModal(entryId) {
             const entry = entries.find(e => e.id === entryId);
             if (!entry) return;
             currentDetailEntryId = entryId;
             const timestamp = Date.now();
             const requestId = generateRequestId(entryId, timestamp);
-
             const prof = entry.profession || 'Diğer';
             const config = PROF_CONFIG[prof] || { color: '#0b2a41', icon: '🔧' };
             const color = config.color;
@@ -1935,9 +1752,7 @@
                     if (entryData) {
                         const name = entryData.name;
                         closeDetailModal();
-                        setTimeout(function() {
-                            openContactModalLarge(currentDetailEntryId, name);
-                        }, 200);
+                        setTimeout(function() { openContactModalLarge(currentDetailEntryId, name); }, 200);
                     }
                 }
             });
@@ -1948,18 +1763,13 @@
                 e.stopPropagation();
                 if (currentDetailEntryId !== null) {
                     closeDetailModal();
-                    setTimeout(function() {
-                        openRatingModal(currentDetailEntryId);
-                    }, 200);
+                    setTimeout(function() { openRatingModal(currentDetailEntryId); }, 200);
                 }
             });
 
             const newCloseBtn = detailCloseBtn.cloneNode(true);
             detailCloseBtn.parentNode.replaceChild(newCloseBtn, detailCloseBtn);
-            newCloseBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                closeDetailModal();
-            });
+            newCloseBtn.addEventListener('click', closeDetailModal);
 
             detailModal.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -1970,19 +1780,15 @@
             document.body.style.overflow = '';
             currentDetailEntryId = null;
         }
-
         closeDetailModalBtn.addEventListener('click', closeDetailModal);
-        detailModal.addEventListener('click', function(e) {
-            if (e.target === detailModal) closeDetailModal();
-        });
+        detailModal.addEventListener('click', function(e) { if (e.target === detailModal) closeDetailModal(); });
 
-        // ----- KONTAKT MODAL -----
+        // ===== KONTAKT MODAL =====
         function openContactModalLarge(entryId, ustaName) {
             const entry = entries.find(e => e.id === entryId);
             if (!entry) return;
             const timestamp = Date.now();
             const requestId = generateRequestId(entryId, timestamp);
-
             const prof = entry.profession || 'Diğer';
             const config = PROF_CONFIG[prof] || { color: '#0b2a41', icon: '🔧' };
             const color = config.color;
@@ -2029,12 +1835,7 @@
                 const phone = document.getElementById('cf_large_phone').value.trim();
                 const subject = document.getElementById('cf_large_subject').value.trim();
                 const message = document.getElementById('cf_large_message').value.trim();
-
-                if (!name || !email || !subject || !message) {
-                    alert('Lütfen tüm zorunlu alanları (*) doldurun.');
-                    return;
-                }
-
+                if (!name || !email || !subject || !message) { alert('Lütfen tüm zorunlu alanları (*) doldurun.'); return; }
                 const fullMessage = `
                     TALEP NUMARASI: ${requestId}
                     USTA: ${entry.name} (ID: ${entryId})
@@ -2049,29 +1850,11 @@
                     ---
                     Bu mesaj ${CONTACT_EMAIL} adresine iletilmiştir.
                 `;
-
-                console.log('📧 E-Mail gönderiliyor:');
-                console.log('Alıcı:', CONTACT_EMAIL);
-                console.log('Konu:', subject);
-                console.log('İçerik:', fullMessage);
-
+                console.log('📧 E-Mail gönderiliyor:', fullMessage);
                 alert(`✅ Mesajınız başarıyla iletildi!\n\nTalep No: ${requestId}\nUsta: ${entry.name}\n\nEkibimiz en kısa sürede size dönüş yapacaktır.`);
-
-                const contactRecord = {
-                    requestId,
-                    entryId,
-                    ustaName: entry.name,
-                    senderName: name,
-                    senderEmail: email,
-                    phone: phone,
-                    subject: subject,
-                    message: message,
-                    timestamp: Date.now()
-                };
                 let history = JSON.parse(localStorage.getItem('ustam_contact_history') || '[]');
-                history.push(contactRecord);
+                history.push({ requestId, entryId, ustaName: entry.name, senderName: name, senderEmail: email, phone, subject, message, timestamp: Date.now() });
                 localStorage.setItem('ustam_contact_history', JSON.stringify(history));
-
                 contactModal.classList.remove('active');
                 document.body.style.overflow = '';
             });
@@ -2081,13 +1864,10 @@
             contactModal.classList.remove('active');
             document.body.style.overflow = '';
         }
-
         closeContactModalBtn.addEventListener('click', closeContactModal);
-        contactModal.addEventListener('click', function(e) {
-            if (e.target === contactModal) closeContactModal();
-        });
+        contactModal.addEventListener('click', function(e) { if (e.target === contactModal) closeContactModal(); });
 
-        // ----- BEWERTUNGS MODAL -----
+        // ===== BEWERTUNG =====
         function openRatingModal(entryId) {
             const entry = entries.find(e => e.id === entryId);
             if (!entry) return;
@@ -2118,10 +1898,7 @@
             });
             document.getElementById('saveRatingBtn').addEventListener('click', function() {
                 const text = document.getElementById('ratingTextInput').value.trim();
-                if (selectedStars === 0) {
-                    alert('Lütfen en az 1 yıldız seçin.');
-                    return;
-                }
+                if (selectedStars === 0) { alert('Lütfen en az 1 yıldız seçin.'); return; }
                 entry.rating = { stars: selectedStars, text: text || 'Yorum yok' };
                 saveEntries();
                 render();
@@ -2129,7 +1906,7 @@
             });
         }
 
-        // ----- USTA BAŞVURU -----
+        // ===== USTA BAŞVURU =====
         function openContactModal() {
             modalTitle.textContent = '📧 Usta başvuru formu';
             let html = `
@@ -2178,31 +1955,22 @@
                 const price = document.getElementById('contactPrice').value.trim();
                 const description = document.getElementById('contactDesc').value.trim();
                 const email = document.getElementById('contactEmail').value.trim();
-                if (!name || !description || !email) {
-                    alert('Lütfen tüm zorunlu alanları doldurun.');
-                    return;
-                }
+                if (!name || !description || !email) { alert('Lütfen tüm zorunlu alanları doldurun.'); return; }
                 const location = district ? `${city} - ${district}` : city;
-
-                pendingRequests.push({
-                    id: generateId(),
-                    name, location, profession, price, description, contactEmail: email,
-                    image: null
-                });
+                pendingRequests.push({ id: generateId(), name, location, profession, price, description, contactEmail: email, image: null });
                 saveEntries();
                 modal.classList.remove('active');
                 alert('✅ Başvurunuz alındı. Yönetim ekibi inceleyip onaylayacaktır.');
             });
         }
 
-        // ----- EVENTS -----
+        // ===== EVENTS =====
         searchBtn.addEventListener('click', function() {
             selectedCity = null;
             currentFilter = searchProfession.value;
             renderCityMarquee();
             render();
         });
-
         resetSearchBtn.addEventListener('click', function() {
             searchProfession.value = 'tümü';
             searchLocation.value = '';
@@ -2211,16 +1979,13 @@
             renderCityMarquee();
             render();
         });
-
         sortSelect.addEventListener('change', function() {
             currentSort = this.value;
             render();
         });
-
         closeModalBtn.addEventListener('click', () => modal.classList.remove('active'));
         modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
         contactBtn.addEventListener('click', openContactModal);
-
         searchLocation.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 selectedCity = null;
@@ -2229,7 +1994,6 @@
                 render();
             }
         });
-
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 if (detailModal.classList.contains('active')) closeDetailModal();
@@ -2239,8 +2003,6 @@
         });
 
         initDragScroll();
-
-        // ===== TÜMÜNÜ BAŞLAT =====
         renderSlider();
         loadEntries();
     })();
