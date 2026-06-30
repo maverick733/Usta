@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Ustam – Usta ve İşveren</title>
     <style>
+        /* ... (CSS'iniz aynen kalacak) ... */
         * {
             margin: 0;
             padding: 0;
@@ -300,7 +301,7 @@
         /* ===== MAIN GRID ===== */
         .grid {
             display: grid;
-            grid-template-columns: 1fr 2.2fr;
+            grid-template-columns: 33% 67%;
             gap: 28px;
         }
         .card {
@@ -571,6 +572,7 @@
             }
         }
 
+        /* ===== MODAL STYLES ===== */
         .modal {
             display: none;
             position: fixed;
@@ -916,6 +918,197 @@
             border-radius: 40px;
             letter-spacing: 1px;
         }
+
+        /* ===== AD CARD STYLES ===== */
+        .ad-card {
+            background: linear-gradient(145deg, #f8fcff, #eef4fa);
+            border-radius: 20px;
+            border: 2px dashed #b0c8dd;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            transition: 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+        .ad-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 20, 40, 0.10);
+            border-color: #7a9bbd;
+        }
+        .ad-card .ad-top {
+            padding: 1rem 1.2rem 0.6rem 1.2rem;
+            background: var(--ad-color, #4a6f8f);
+            color: white;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .ad-card .ad-top .ad-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .ad-card .ad-top .ad-sponsor-badge {
+            background: rgba(255,255,255,0.25);
+            padding: 2px 12px;
+            border-radius: 40px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 0.5px;
+        }
+        .ad-card .ad-body {
+            padding: 0.8rem 1.2rem 1.2rem 1.2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .ad-card .ad-body .ad-desc {
+            color: #1a2f44;
+            font-size: 0.9rem;
+            margin: 4px 0 10px;
+            flex: 1;
+        }
+        .ad-card .ad-body .ad-cta {
+            background: var(--ad-color, #0b2a41);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.15s;
+            align-self: flex-start;
+            margin-top: 6px;
+        }
+        .ad-card .ad-body .ad-cta:hover {
+            opacity: 0.85;
+            transform: scale(1.02);
+        }
+
+        /* ===== WERBEKARTEN - "Ustalar için" KARTININ ALTINDA ===== */
+        .ad-slider-container {
+            position: relative;
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            min-height: 140px;
+            background: #f8fcff;
+            border: 1px solid #e9edf2;
+            margin-bottom: 8px;
+        }
+        .ad-slider-track {
+            display: flex;
+            transition: transform 0.6s ease-in-out;
+            width: 100%;
+        }
+        .ad-slide {
+            min-width: 100%;
+            padding: 1rem 1.2rem;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(145deg, #f8fcff, #eef4fa);
+        }
+        .ad-slide .slide-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+        .ad-slide .slide-top .slide-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0b2a41;
+        }
+        .ad-slide .slide-top .slide-badge {
+            background: #0b2a41;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 40px;
+            font-size: 0.55rem;
+            font-weight: 600;
+        }
+        .ad-slide .slide-desc {
+            color: #1a2f44;
+            font-size: 0.8rem;
+            margin: 2px 0 8px;
+            flex: 1;
+        }
+        .ad-slide .slide-cta {
+            background: var(--slide-color, #0b2a41);
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.15s;
+            align-self: flex-start;
+        }
+        .ad-slide .slide-cta:hover {
+            opacity: 0.85;
+            transform: scale(1.02);
+        }
+
+        .ad-slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            padding: 6px 0 0 0;
+        }
+        .ad-slider-dots .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #d0d7e2;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            padding: 0;
+        }
+        .ad-slider-dots .dot.active {
+            background: #0b2a41;
+            transform: scale(1.2);
+        }
+        .ad-slider-dots .dot:hover {
+            background: #7a8b9f;
+        }
+
+        /* Reklam başlığı için küçük stil */
+        .ad-section-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #0b2a41;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .ad-section-title span {
+            background: #f5b342;
+            color: white;
+            font-size: 0.55rem;
+            padding: 2px 10px;
+            border-radius: 40px;
+            font-weight: 600;
+        }
+
+        /* Sol sütun için özel stil - kartlar aynı genişlikte */
+        .left-column {
+            display: flex;
+            flex-direction: column;
+        }
+        .left-column .card {
+            width: 100%;
+            margin-bottom: 1.6rem;
+        }
     </style>
 </head>
 <body>
@@ -998,11 +1191,9 @@
 
     <!-- ===== MAIN GRID ===== -->
     <div class="grid">
-        <div>
-            <div class="card" style="display:none;">
-                <!-- Die Karte mit den Städten wurde durch die Marquee-Leiste ersetzt -->
-            </div>
-
+        <!-- Sol Sütun - %33 -->
+        <div class="left-column">
+            <!-- ===== "Ustalar için" KARTI ===== -->
             <div class="card" style="background:#f4f8ff;">
                 <h2>📢 Ustalar için</h2>
                 <div class="info-box">
@@ -1011,8 +1202,27 @@
                 </div>
                 <button id="contactHandwerkerBtn" class="btn btn-success">📧 Başvuru gönder</button>
             </div>
+
+            <!-- ===== WERBEKARTEN - "Ustalar için" KARTININ ALTINDA ===== -->
+            <div class="card" style="background:#ffffff; padding: 1.2rem 1.4rem;">
+                <div class="ad-section-title">
+                    📢 Sponsorlu Reklamlar
+                    <span>Özel Fırsatlar</span>
+                </div>
+                <div class="ad-slider-container" id="adSlider">
+                    <div class="ad-slider-track" id="adSliderTrack">
+                        <!-- Slaytlar JS ile doldurulacak -->
+                    </div>
+                    <div class="ad-slider-dots" id="adSliderDots"></div>
+                </div>
+                <p style="font-size:0.7rem; color:#7a8b9f; margin-top:6px; text-align:center;">
+                    💼 Ustalar için özel reklam fırsatları! 
+                    <span style="display:inline-block; background:#0b2a41; color:white; padding:1px 12px; border-radius:40px; font-size:0.6rem; font-weight:600; margin-left:4px;">📞 İletişim</span>
+                </p>
+            </div>
         </div>
 
+        <!-- Sağ Sütun - %67 -->
         <div>
             <div class="card">
                 <h2>📌 Usta listesi</h2>
@@ -1089,6 +1299,96 @@
         const STORAGE_KEY = 'serbestmeslek_data_v4';
         const CONTACT_EMAIL = 'info@ustam.com';
 
+        // ===== REKLAM VERİLERİ (Slider için) =====
+        const sliderAds = [
+            {
+                id: 'slide1',
+                title: '🎨 Boya Malzemeleri',
+                description: 'En kaliteli boya ve badana malzemeleri %20 indirimle!',
+                color: '#e67e22',
+                ctaText: 'İncele'
+            },
+            {
+                id: 'slide2',
+                title: '🔧 Tesisat Kampanyası',
+                description: 'Tüm tesisat işlerinde ilk 5 müşteriye özel fırsat!',
+                color: '#3498db',
+                ctaText: 'Detaylar'
+            },
+            {
+                id: 'slide3',
+                title: '⚡ Elektrik Sigorta',
+                description: 'Sigorta ve kablo işlerinde profesyonel ekip, hemen teklif alın.',
+                color: '#f1c40f',
+                ctaText: 'Teklif Al'
+            },
+            {
+                id: 'slide4',
+                title: '🌿 Peyzaj Tasarımı',
+                description: 'Bahçenizi hayalinizdeki gibi tasarlıyoruz. Ücretsiz keşif!',
+                color: '#27ae60',
+                ctaText: 'Keşif Randevusu'
+            }
+        ];
+
+        // ===== REKLAM KARTLARI (Eski sistemle uyum) =====
+        const ads = [
+            {
+                id: 'ad1',
+                title: '🎨 Boya Malzemeleri',
+                description: 'En kaliteli boya ve badana malzemeleri %20 indirimle!',
+                color: '#e67e22',
+                icon: '🖌️',
+                profession: 'Boyacı',
+                ctaText: 'İncele'
+            },
+            {
+                id: 'ad2',
+                title: '🔧 Tesisat Kampanyası',
+                description: 'Tüm tesisat işlerinde ilk 5 müşteriye özel fırsat!',
+                color: '#3498db',
+                icon: '🚰',
+                profession: 'Tesisatçı',
+                ctaText: 'Detaylar'
+            },
+            {
+                id: 'ad3',
+                title: '⚡ Elektrik Sigorta',
+                description: 'Sigorta ve kablo işlerinde profesyonel ekip, hemen teklif alın.',
+                color: '#f1c40f',
+                icon: '💡',
+                profession: 'Elektrikçi',
+                ctaText: 'Teklif Al'
+            },
+            {
+                id: 'ad4',
+                title: '🌿 Peyzaj Tasarımı',
+                description: 'Bahçenizi hayalinizdeki gibi tasarlıyoruz. Ücretsiz keşif!',
+                color: '#27ae60',
+                icon: '🌳',
+                profession: 'Bahçıvan',
+                ctaText: 'Keşif Randevusu'
+            },
+            {
+                id: 'ad5',
+                title: '🔑 Acil Çilingir',
+                description: '7/24 acil çilingir hizmeti, 15 dk\'da kapınızdayız.',
+                color: '#2c3e50',
+                icon: '🗝️',
+                profession: 'Çilingir',
+                ctaText: 'Ara'
+            },
+            {
+                id: 'ad6',
+                title: '🪚 Mobilya İmalatı',
+                description: 'El yapımı ahşap mobilyalar, size özel tasarım.',
+                color: '#d35400',
+                icon: '🪑',
+                profession: 'Marangoz',
+                ctaText: 'İletişim'
+            }
+        ];
+
         const TUM_ILLER = [
             "Adana", "Adıyaman", "Afyonkarahisar", "Ağrı", "Aksaray", "Amasya", "Ankara", "Antalya", "Ardahan", "Artvin",
             "Aydın", "Balıkesir", "Bartın", "Batman", "Bayburt", "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur",
@@ -1148,12 +1448,86 @@
         const cityMarqueeWrapper = document.getElementById('cityMarqueeWrapper');
         const cityCountTotal = document.getElementById('cityCountTotal');
 
+        // Slider elementleri
+        const adSliderTrack = document.getElementById('adSliderTrack');
+        const adSliderDots = document.getElementById('adSliderDots');
+
         let entries = [];
         let pendingRequests = [];
         let currentFilter = 'tümü';
         let currentSort = 'beste';
         let selectedCity = null;
         let currentDetailEntryId = null;
+
+        // Slider state
+        let currentSlideIndex = 0;
+        let slideInterval = null;
+        const SLIDE_INTERVAL_MS = 5000;
+
+        // ===== SLIDER RENDER =====
+        function renderSlider() {
+            let slidesHtml = '';
+            sliderAds.forEach((ad, index) => {
+                slidesHtml += `
+                    <div class="ad-slide" style="--slide-color: ${ad.color}; background: linear-gradient(145deg, #f8fcff, #eef4fa); border-left: 4px solid ${ad.color};">
+                        <div class="slide-top">
+                            <span class="slide-title">${ad.title}</span>
+                            <span class="slide-badge" style="background: ${ad.color};">📢 Sponsor</span>
+                        </div>
+                        <div class="slide-desc">${ad.description}</div>
+                        <button class="slide-cta" style="background: ${ad.color};" onclick="alert('${ad.title} reklamına tıklandı!')">${ad.ctaText} →</button>
+                    </div>
+                `;
+            });
+            adSliderTrack.innerHTML = slidesHtml;
+
+            let dotsHtml = '';
+            sliderAds.forEach((_, index) => {
+                dotsHtml += `<button class="dot ${index === 0 ? 'active' : ''}" data-index="${index}"></button>`;
+            });
+            adSliderDots.innerHTML = dotsHtml;
+
+            document.querySelectorAll('.dot').forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    goToSlide(index);
+                });
+            });
+
+            goToSlide(0);
+            startAutoSlide();
+        }
+
+        function goToSlide(index) {
+            const totalSlides = sliderAds.length;
+            if (index < 0) index = totalSlides - 1;
+            if (index >= totalSlides) index = 0;
+            currentSlideIndex = index;
+
+            adSliderTrack.style.transform = `translateX(-${index * 100}%)`;
+
+            document.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function startAutoSlide() {
+            if (slideInterval) clearInterval(slideInterval);
+            slideInterval = setInterval(() => {
+                goToSlide(currentSlideIndex + 1);
+            }, SLIDE_INTERVAL_MS);
+        }
+
+        function stopAutoSlide() {
+            if (slideInterval) {
+                clearInterval(slideInterval);
+                slideInterval = null;
+            }
+        }
+
+        const adSlider = document.getElementById('adSlider');
+        adSlider.addEventListener('mouseenter', stopAutoSlide);
+        adSlider.addEventListener('mouseleave', startAutoSlide);
 
         // ===== DRAG & DROP für Marquee =====
         let isDragging = false;
@@ -1162,7 +1536,6 @@
         let dragStartTime = 0;
 
         function initDragScroll() {
-            // Maus-Events
             cityMarqueeWrapper.addEventListener('mousedown', function(e) {
                 isDragging = true;
                 startX = e.pageX - this.offsetLeft;
@@ -1187,14 +1560,12 @@
                     isDragging = false;
                     cityMarqueeWrapper.classList.remove('dragging');
                     cityMarqueeWrapper.style.cursor = 'grab';
-                    // Animation nur fortsetzen, wenn nicht gehovert
                     if (!cityMarqueeWrapper.matches(':hover')) {
                         cityMarqueeTrack.classList.add('animating');
                     }
                 }
             });
 
-            // Touch-Events für mobile
             let touchStartX = 0;
             let touchScrollLeft = 0;
 
@@ -1225,7 +1596,6 @@
                 }
             });
 
-            // Hover-Events für Animation
             cityMarqueeWrapper.addEventListener('mouseenter', function() {
                 if (!isDragging) {
                     cityMarqueeTrack.classList.remove('animating');
@@ -1287,7 +1657,6 @@
                 return;
             }
 
-            // Doppelte Liste für nahtlosen Loop
             const items = [...sortedCities, ...sortedCities];
             let html = '';
             items.forEach(city => {
@@ -1301,11 +1670,8 @@
                 `;
             });
             cityMarqueeTrack.innerHTML = html;
-
-            // Animation starten
             cityMarqueeTrack.classList.add('animating');
 
-            // Click auf Stadt
             document.querySelectorAll('.city-item').forEach(item => {
                 item.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -1322,11 +1688,9 @@
                 });
             });
 
-            // Mausrad-Scrolling (horizontal)
             cityMarqueeWrapper.addEventListener('wheel', function(e) {
                 e.preventDefault();
                 this.scrollLeft += e.deltaY;
-                // Animation pausieren bei Scrollen
                 cityMarqueeTrack.classList.remove('animating');
                 clearTimeout(this._scrollTimeout);
                 this._scrollTimeout = setTimeout(() => {
@@ -1391,6 +1755,16 @@
             return `${prefix}-${date}-${entryId}-${random}`;
         }
 
+        // ===== REKLAM FONKSİYONU (Eski sistemle uyum) =====
+        function renderAds() {
+            let filteredAds = ads;
+            if (currentFilter !== 'tümü') {
+                filteredAds = ads.filter(ad => ad.profession === currentFilter);
+            }
+            return filteredAds;
+        }
+
+        // ===== RENDER =====
         function render() {
             let filtered = entries.filter(e => e.approved !== false);
             const locationFilter = searchLocation.value.trim().toLowerCase();
@@ -1415,18 +1789,24 @@
                     return pa - pb;
                 });
             }
+
             if (filtered.length === 0) {
                 entryList.innerHTML = `<div class="empty">🔍 Usta bulunamadı. Filtrenizi değiştirin.</div>`;
                 return;
             }
+
+            const availableAds = renderAds();
+            let adIndex = 0;
+
             let html = '';
-            filtered.forEach(entry => {
+            filtered.forEach((entry, index) => {
                 const prof = entry.profession || 'Diğer';
                 const config = PROF_CONFIG[prof] || { color: '#0b2a41', icon: '🔧' };
                 const color = config.color;
                 const icon = config.icon;
                 const starsHtml = renderStars(entry.rating ? entry.rating.stars : 0);
                 const ratingText = entry.rating ? entry.rating.text : 'Henüz değerlendirme yok';
+
                 html += `
                     <div class="entry-card" style="--prof-color: ${color};" data-id="${entry.id}">
                         <div class="card-top">
@@ -1449,7 +1829,26 @@
                         </div>
                     </div>
                 `;
+
+                if (index % 3 === 2 && availableAds.length > 0) {
+                    const ad = availableAds[adIndex % availableAds.length];
+                    adIndex++;
+
+                    html += `
+                        <div class="ad-card" style="--ad-color: ${ad.color};">
+                            <div class="ad-top" style="background: ${ad.color};">
+                                <span class="ad-title">${ad.icon} ${escapeHtml(ad.title)}</span>
+                                <span class="ad-sponsor-badge">📢 Sponsorlu</span>
+                            </div>
+                            <div class="ad-body">
+                                <div class="ad-desc">${escapeHtml(ad.description)}</div>
+                                <button class="ad-cta" style="background: ${ad.color};" onclick="alert('${escapeHtml(ad.title)} reklamına tıklandı!')">${escapeHtml(ad.ctaText)} →</button>
+                            </div>
+                        </div>
+                    `;
+                }
             });
+
             entryList.innerHTML = html;
 
             document.querySelectorAll('.entry-card').forEach(card => {
@@ -1839,9 +2238,10 @@
             }
         });
 
-        // Drag & Drop initialisieren
         initDragScroll();
 
+        // ===== TÜMÜNÜ BAŞLAT =====
+        renderSlider();
         loadEntries();
     })();
 </script>
